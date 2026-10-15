@@ -1,16 +1,168 @@
-# React + Vite
+# 📊 HS Accounting & Advisory Office
+> A modern, high-performance web application for a premier certified public accounting (CPA) and financial advisory firm, crafted with **React 19**, **Vite 8**, **Tailwind CSS v4**, and native RTL Arabic typography.
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+---
 
-Currently, two official plugins are available:
+## 🌟 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 1. 🧭 Navigation & Brand Identity (Header)
+- **Interactive Logo & Scroll-To-Top**: Clicking the office logo instantly routes to the homepage and initiates a smooth scroll to the very top of the page (`window.scrollTo({ top: 0, behavior: 'smooth' })`).
+- **Responsive Navigation Links**: Seamless hash navigation to key sections (`About`, `Services`, `Contact`, `Channel`).
+- **Mobile Navigation Drawer**: Smooth slide-over navigation menu optimized for mobile screens (390px - 720px) with instant CTA booking button.
+- **Custom Favicon**: The browser tab displays the official office emblem (`elshayb-logo.png`).
 
-## React Compiler
+### 2. 🚀 Hero Section
+- **Compelling Typography**: Tailored financial consulting headline and subtext using the Cairo font family.
+- **Direct Action CTAs**: "Book a Consultation" button anchors directly to the contact form (`#contact`), alongside a secondary "Explore Services" button.
+- **Trust Badges**: Highlighted indicators for accuracy, precision, and verified milestone delivery.
+- **Hero Dashboard Artwork**: Custom dark financial dashboard mockup with subtle floating animation (`animate-hero-float`).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 3. 🏢 About Us Section
+- Highlights the firm's vision, certified accounting credentials, regulatory compliance, and advisory expertise in corporate tax, audits, and business planning.
 
-## Expanding the Oxlint configuration
+### 4. 🎯 Target Audiences & Services Section
+- Three distinct, responsive service cards tailored to key client segments:
+  - 🏢 **Corporations & Enterprises**: Comprehensive accounting, tax filing, and data-driven financial decision-making.
+  - 👤 **Individuals**: Personal wealth, tax advisory, and confidential financial planning.
+  - 🚀 **Startups**: Structured bookkeeping, financial runway management, and scalable accounting foundations.
+- Micro-interactions with card elevation (`hover:-translate-y-1`) and interactive arrow indicators.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### 5. 📬 Consultation & Office Location Section
+- **Consultation Booking Form**:
+  - Inputs for client name, phone/email, and inquiry details with custom focus ring styling.
+  - Interactive submission state with loading feedback, error prevention, and clean success notification.
+- **Office Location & Interactive Map Card**:
+  - Quick-glance contact strip displaying telephone, office hours, and physical address.
+  - Bespoke vector map visualizer featuring road outlines, a pulsating location pin, and a direct link to **Google Maps**.
+
+### 6. ⚠️ Custom 404 Error Page
+- Fully themed 404 Not Found experience:
+  - Custom vector artwork (`not-found-dashboard.svg`) matching the hero dashboard aesthetic, featuring a broken chart line, 404 watermark, and floating alert badge.
+  - Direct recovery actions returning the user to the homepage.
+
+### 7. 📄 Official Footer
+- Certified Public Accountant attribution: "مكتب الشايب — محاسبون قانونيون".
+- Copyright declaration: `© 2026 El-Shayb Office. All rights reserved.`
+- Interactive **YouTube channel** badge that launches the firm's official channel in a new tab.
+
+---
+
+## 🎨 Design System & Color Palette
+
+The interface is built with **Tailwind CSS v4** utilizing unified theme tokens configured in `src/styles/global.css`:
+
+| Token | Role / Usage | Hex Code |
+| :--- | :--- | :--- |
+| `charcoal` | Primary dark surface (Header, Footer, Hero) | `#202223` |
+| `charcoal-soft` | Secondary dark background & borders | `#303234` |
+| `brand-red` | Primary brand accent & button background | `#D43C35` |
+| `brand-red-dark` | Hover states & emphasized red text | `#A92A25` |
+| `brand-red-pale` | Light red icon container backgrounds | `#FAE9E7` |
+| `bg-primary` | Main content background (white) | `#FFFFFF` |
+| `bg-secondary` | Alternating section backgrounds | `#F6F5F4` |
+| `text-heading` | Primary titles and card headings | `#202223` |
+| `text-body` | Standard body text | `#55585A` |
+| `font-cairo` | Primary Arabic typeface (Google Fonts) | Weights: `400`, `600`, `800` |
+
+---
+
+## 🗂️ Project Directory Structure
+
+```text
+HS-Accounting-Office/
+├── public/
+│   ├── elshayb-logo.png          # Official brand logo & browser favicon
+│   └── favicon.svg
+├── src/
+│   ├── assets/                   # High-res graphics, logo & SVG illustrations
+│   │   ├── elshayb-logo.png
+│   │   ├── hero-dashboard.png
+│   │   └── not-found-dashboard.svg
+│   ├── components/
+│   │   ├── layout/               # Global layout wrappers
+│   │   │   ├── navbar/Navbar.jsx # Navigation header with smooth scroll
+│   │   │   └── footer/Footer.jsx # Official footer & YouTube link
+│   │   ├── sections/             # Page sections
+│   │   │   ├── Hero/Hero.jsx
+│   │   │   ├── About/About.jsx
+│   │   │   ├── Audience/Audience.jsx
+│   │   │   └── Contact/Contact.jsx
+│   │   └── ui/                   # Reusable atomic UI components
+│   │       ├── Button/Button.jsx
+│   │       └── SectionTitle/SectionTitle.jsx
+│   ├── data/                     # Static dataset definitions
+│   │   └── audience.js
+│   ├── pages/                    # Route entry pages
+│   │   ├── Home.jsx              # Landing page
+│   │   └── NotFound.jsx          # 404 error page
+│   ├── styles/                   # Unified Tailwind CSS v4 design tokens
+│   │   └── global.css
+│   ├── App.jsx                   # Router provider & route-change scroll reset
+│   └── main.jsx                  # React application entry point
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## 🛠️ Technology Stack
+
+- **Frontend Core**: [React 19](https://react.dev/)
+- **Build Tool & Bundler**: [Vite 8](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Routing**: [React Router DOM v7](https://reactrouter.com/)
+- **Icons**: [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
+- **Typography**: [Cairo (Google Fonts)](https://fonts.google.com/specimen/Cairo)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (version 18 or higher recommended).
+- npm (bundled with Node.js).
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/HS-Accounting-Office.git
+   cd HS-Accounting-Office
+   ```
+
+2. Install project dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development Server
+Launch the local Vite development server with Hot Module Replacement (HMR):
+```bash
+npm run dev
+```
+Navigate to `http://localhost:5173` in your browser.
+
+### Production Build
+Generate an optimized production build:
+```bash
+npm run build
+```
+Preview the production build locally:
+```bash
+npm run preview
+```
+
+---
+
+## 🔮 Backend & API Roadmap
+
+- [ ] **Node.js & Express API Server**:
+  - `POST /api/contact` consultation booking endpoint.
+  - Instant branded HTML email dispatch to the office managing partner via **Nodemailer** or **Resend API**.
+  - **Security & Bot Mitigation**: IP Rate Limiting (`express-rate-limit`), CORS domain restriction, honeypot spam traps, and input validation.
+  - **Audit Log**: Optional persistence layer with **MongoDB** to prevent lead loss and archive customer inquiries.
+
+---
+
+## 📄 License & Attribution
+
+Copyright © 2026 El-Shayb Accounting & Tax Advisory Office. All rights reserved.
