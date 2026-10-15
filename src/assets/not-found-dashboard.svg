@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Card Shadow -->
+    <filter id="card-shadow" x="-10%" y="-10%" width="125%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="25" stdDeviation="35" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="badge-shadow" x="-20%" y="-20%" width="145%" height="150%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    
+    <!-- Red glow -->
+    <radialGradient id="redGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D43C35" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#D43C35" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Line Gradient -->
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D43C35"/>
+      <stop offset="65%" stop-color="#EF7D77"/>
+      <stop offset="100%" stop-color="#A92A25"/>
+    </linearGradient>
+
+    <!-- Bar Gradient -->
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5a2725"/>
+      <stop offset="100%" stop-color="#361a19"/>
+    </linearGradient>
+    
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#242628"/>
+      <stop offset="100%" stop-color="#1c1e1f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Glow Behind -->
+  <circle cx="360" cy="270" r="240" fill="url(#redGlow)" />
+
+  <!-- Main Dashboard Card -->
+  <g transform="rotate(-1.5 380 280)" filter="url(#card-shadow)">
+    <!-- Base Card -->
+    <rect x="70" y="60" width="650" height="430" rx="26" fill="url(#cardGrad)" stroke="#303336" stroke-width="1.5"/>
+
+    <!-- Window Dots (top right in RTL design) -->
+    <circle cx="655" cy="100" r="5" fill="#4d5054"/>
+    <circle cx="672" cy="100" r="5" fill="#4d5054"/>
+    <circle cx="689" cy="100" r="5" fill="#4d5054"/>
+
+    <!-- Header divider line -->
+    <rect x="100" y="100" width="70" height="7" rx="3.5" fill="#35373a"/>
+
+    <!-- Grid Horizontal Lines -->
+    <line x1="90" y1="180" x2="690" y2="180" stroke="#2b2d30" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <line x1="90" y1="260" x2="690" y2="260" stroke="#2b2d30" stroke-width="1.5"/>
+    <line x1="90" y1="340" x2="690" y2="340" stroke="#2b2d30" stroke-width="1.5"/>
+    <line x1="90" y1="420" x2="690" y2="420" stroke="#2b2d30" stroke-width="1.5"/>
+
+    <!-- Background Financial Columns (Bars) -->
+    <rect x="140" y="320" width="46" height="100" rx="10" fill="url(#barGrad)"/>
+    <rect x="210" y="230" width="46" height="190" rx="10" fill="url(#barGrad)"/>
+    <rect x="280" y="270" width="46" height="150" rx="10" fill="url(#barGrad)"/>
+    
+    <!-- Empty / Broken Area around 404 -->
+    <rect x="350" y="350" width="46" height="70" rx="10" fill="#2a1b1b" stroke="#D43C35" stroke-width="1" stroke-dasharray="3 3"/>
+    <rect x="420" y="300" width="46" height="120" rx="10" fill="url(#barGrad)"/>
+    <rect x="490" y="360" width="46" height="60" rx="10" fill="url(#barGrad)"/>
+    <rect x="560" y="250" width="46" height="170" rx="10" fill="url(#barGrad)"/>
+
+    <!-- Stylized 404 in Center Dashboard -->
+    <g transform="translate(365, 220)">
+      <!-- 404 Big Numbers Background Watermark -->
+      <text x="0" y="0" text-anchor="middle" font-family="'Cairo', sans-serif" font-weight="900" font-size="115" fill="#1b1c1e" stroke="#D43C35" stroke-opacity="0.25" stroke-width="2" letter-spacing="4">404</text>
+    </g>
+
+    <!-- Red Financial Trend Line with break / error indicator -->
+    <path d="M 100 370 Q 150 330 200 320 T 300 340 T 360 250" fill="none" stroke="url(#lineGrad)" stroke-width="4.5" stroke-linecap="round"/>
+    
+    <!-- Gap / Disconnected Line -->
+    <path d="M 360 250 Q 375 230 395 240" fill="none" stroke="#D43C35" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4"/>
+    
+    <!-- Resumed / Glitched Line -->
+    <path d="M 430 290 Q 480 340 530 260 T 630 180" fill="none" stroke="url(#lineGrad)" stroke-width="4.5" stroke-linecap="round"/>
+
+    <!-- Error Pulse Ring at Breakpoint (360, 250) -->
+    <circle cx="360" cy="250" r="14" fill="#D43C35" fill-opacity="0.25"/>
+    <circle cx="360" cy="250" r="7" fill="#D43C35"/>
+    <circle cx="360" cy="250" r="3" fill="#ffffff"/>
+
+    <!-- Warning / Question Icon at Breakpoint -->
+    <g transform="translate(350, 195)">
+      <circle cx="10" cy="10" r="16" fill="#341b1a" stroke="#D43C35" stroke-width="2"/>
+      <path d="M 7 6 C 7 3 13 3 13 6 C 13 9 10 9 10 12" stroke="#EF7D77" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="10" cy="15" r="1.2" fill="#EF7D77"/>
+    </g>
+  </g>
+
+  <!-- Floating Badge (Matches Hero Floating Card Exactly) -->
+  <g transform="translate(330, 410)" filter="url(#badge-shadow)">
+    <!-- Container -->
+    <rect x="0" y="0" width="370" height="96" rx="20" fill="#252729" stroke="#373a3d" stroke-width="1.5"/>
+
+    <!-- Badge Icon Container (Right in RTL) -->
+    <rect x="290" y="16" width="64" height="64" rx="16" fill="#3d2020" />
+    
+    <!-- Alert / Exclamation inside Icon Box -->
+    <path d="M 322 34 L 322 51" stroke="#D43C35" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="322" cy="60" r="2.5" fill="#D43C35"/>
+
+    <!-- Texts in RTL -->
+    <!-- Title -->
+    <text x="270" y="44" text-anchor="end" font-family="'Cairo', sans-serif" font-weight="800" font-size="19" fill="#FFFFFF">
+      حساب غير متوفر
+    </text>
+    <!-- Subtitle -->
+    <text x="270" y="68" text-anchor="end" font-family="'Cairo', sans-serif" font-weight="500" font-size="13.5" fill="#9da1a5">
+      رمز الخطأ 404 • مسار مفقود
+    </text>
+  </g>
+</svg>
