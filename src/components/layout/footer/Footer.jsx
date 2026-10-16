@@ -8,7 +8,7 @@ export const Footer = ({ youtubeUrl = 'https://www.youtube.com/@-HamdyElshayb' }
   };
 
   return (
-    <footer id="channel" className="bg-charcoal border-t border-charcoal-soft/60 py-6 transition-colors">
+    <footer className="bg-charcoal border-t border-charcoal-soft/60 py-6 transition-colors">
       <div className="w-full max-w-[1120px] mx-auto px-6 max-md:px-[18px] flex items-center justify-between gap-6 max-md:flex-col max-md:text-center max-md:gap-5">
         {/* ─── Right (in RTL): Brand & Logo ─── */}
         <Link

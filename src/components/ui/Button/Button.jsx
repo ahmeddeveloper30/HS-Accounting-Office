@@ -35,7 +35,7 @@ export const Button = ({
 
   if (to) {
     return (
-      <Link to={to} className={`group ${classes}`} {...props}>
+      <Link to={to} onClick={onClick} className={`group ${classes}`} {...props}>
         {content}
       </Link>
     );
@@ -43,7 +43,7 @@ export const Button = ({
 
   if (href) {
     return (
-      <a href={href} className={`group ${classes}`} {...props}>
+      <a href={href} onClick={onClick} className={`group ${classes}`} {...props}>
         {content}
       </a>
     );

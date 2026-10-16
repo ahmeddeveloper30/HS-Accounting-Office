@@ -1,4 +1,3 @@
-import "./Projects.css";
 import React, { useEffect, useRef, useState } from "react";
 
 /* =====================================================================
@@ -121,46 +120,64 @@ function CaseStudy({ before, after, currency, title, description, documented }) 
   const pctNum = useCountUp(reduction, seen, { duration: 2000, delay: 500 });
 
   return (
-    <article className="pj-case" ref={ref}>
-      <div className="pj-case__copy">
-        <span className="pj-tag">{title}</span>
-        <h3>من {fmt(before)} إلى {fmt(after)} {currency}</h3>
-        <p>{description}</p>
+    <article
+      className="grid grid-cols-[1fr_1.2fr] max-[900px]:grid-cols-1 gap-10 max-[900px]:gap-7 items-center bg-charcoal border border-red-500/15 border-t-[3px] border-t-[#ecd28f] rounded-[18px] p-9 max-[900px]:p-7 max-[900px]:px-6 mb-6"
+      ref={ref}
+    >
+      <div>
+        <span className="inline-block bg-[rgba(212,169,79,0.14)] text-brand-red text-xs font-[800] px-3 py-1 rounded-full mb-3">
+          {title}
+        </span>
+        <h3 className="my-3.5 mb-2.5 text-[clamp(22px,2.6vw,28px)] font-[800] leading-[1.5] text-text-inverse">
+          من {fmt(before)} إلى {fmt(after)} {currency}
+        </h3>
+        <p className="m-0 text-[#aebbd0] text-sm leading-[1.9]">{description}</p>
         {!documented && (
-          <small className="pj-case__note">* بانتظار توثيق المستندات</small>
+          <small className="block mt-2.5 text-brand-red text-xs">
+            * بانتظار توثيق المستندات
+          </small>
         )}
       </div>
 
-      <div className="pj-case__chart" aria-label="مقارنة المبلغ قبل التسوية وبعدها">
-        <div className="pj-bar">
-          <div className="pj-bar__row">
+      <div
+        className="flex flex-col gap-[18px]"
+        aria-label="مقارنة المبلغ قبل التسوية وبعدها"
+      >
+        <div>
+          <div className="flex justify-between gap-3 mb-2 text-[13px] text-[#aebbd0]">
             <span>قبل التسوية</span>
-            <strong>{fmt(Math.round(beforeNum))} {currency}</strong>
+            <strong className="text-text-inverse text-[15px] font-[700] tabular-nums">
+              {fmt(Math.round(beforeNum))} {currency}
+            </strong>
           </div>
-          <div className="pj-bar__track">
+          <div className="h-3.5 bg-white/10 rounded-full overflow-hidden">
             <div
-              className="pj-bar__fill pj-bar__fill--before"
+              className="h-full rounded-full bg-brand-red transition-all duration-[1800ms] ease-[cubic-bezier(0.22,0.8,0.2,1)] motion-reduce:transition-none"
               style={{ width: seen ? "100%" : "0%" }}
             />
           </div>
         </div>
 
-        <div className="pj-bar">
-          <div className="pj-bar__row">
+        <div>
+          <div className="flex justify-between gap-3 mb-2 text-[13px] text-[#aebbd0]">
             <span>بعد التسوية</span>
-            <strong>{fmt(Math.round(afterNum))} {currency}</strong>
+            <strong className="text-text-inverse text-[15px] font-[700] tabular-nums">
+              {fmt(Math.round(afterNum))} {currency}
+            </strong>
           </div>
-          <div className="pj-bar__track">
+          <div className="h-3.5 bg-white/10 rounded-full overflow-hidden">
             <div
-              className="pj-bar__fill pj-bar__fill--after"
+              className="h-full rounded-full bg-brand-red transition-all duration-[1800ms] delay-[1500ms] ease-[cubic-bezier(0.22,0.8,0.2,1)] motion-reduce:transition-none"
               style={{ width: seen ? `${afterWidth}%` : "0%" }}
             />
           </div>
         </div>
 
-        <div className="pj-case__pct">
-          <b>{pctNum.toFixed(2)}%</b>
-          <span>نسبة الخفض</span>
+        <div className="flex items-baseline gap-3 mt-1 pt-[18px] border-t border-dashed border-red-500/15">
+          <b className="text-[40px] max-[600px]:text-[34px] font-[800] text-brand-red leading-none tabular-nums">
+            {pctNum.toFixed(2)}%
+          </b>
+          <span className="text-[#aebbd0] text-[13px]">نسبة الخفض</span>
         </div>
       </div>
     </article>
@@ -187,25 +204,30 @@ function BuildingIcon() {
 
 function ClientCard({ name, service, description, logo, result }) {
   return (
-    <article className="pj-card">
-      <div className="pj-card__top">
-        <span className="pj-logo">
+    <article className="bg-charcoal border border-red-500/15 rounded-card p-[26px] flex flex-col gap-2.5 transition-colors duration-200 hover:border-brand-red motion-reduce:transition-none">
+      <div className="flex items-center justify-between gap-3 mb-1.5">
+        <span className="w-[54px] h-[54px] rounded-logo bg-white grid place-items-center overflow-hidden shrink-0 text-brand-red text-[22px] font-[800]">
           {logo ? (
-            <img src={logo} alt={`شعار ${name}`} loading="lazy" />
+            <img
+              src={logo}
+              alt={`شعار ${name}`}
+              loading="lazy"
+              className="w-full h-full object-contain p-1.5"
+            />
           ) : (
             <BuildingIcon />
           )}
         </span>
-        <span className="pj-service">{service}</span>
+        <span className="text-brand-red text-xs font-[800]">{service}</span>
       </div>
 
-      <h3>{name}</h3>
-      <p>{description}</p>
+      <h3 className="m-0 text-lg font-[800] text-text-inverse">{name}</h3>
+      <p className="m-0 text-[#aebbd0] text-[13px] leading-[1.9]">{description}</p>
 
       {result && (
-        <div className="pj-result">
-          <span>النتيجة الموثقة</span>
-          <strong>{result}</strong>
+        <div className="mt-auto pt-3.5 border-t border-dashed border-red-500/15 flex flex-col gap-1">
+          <span className="text-[#aebbd0] text-xs">النتيجة الموثقة</span>
+          <strong className="text-brand-red text-base font-[700]">{result}</strong>
         </div>
       )}
     </article>
@@ -214,17 +236,26 @@ function ClientCard({ name, service, description, logo, result }) {
 
 export default function Projects() {
   return (
-    <section className="pj-section" id="projects">
-      <div className="pj-container">
-        <header className="pj-head">
-          <span className="pj-eyebrow">مشاريعنا</span>
-          <h2>أعمال نفخر بها</h2>
-          <p>نماذج من حلول محاسبية صُممت بعناية لتصنع فرقًا واضحًا.</p>
+    <section
+      className="bg-charcoal pt-[76px] pb-[84px] max-[600px]:pt-[52px] max-[600px]:pb-[56px] text-text-inverse"
+      id="projects"
+    >
+      <div className="w-[min(1120px,100%-40px)] mx-auto">
+        <header className="text-center mb-11">
+          <span className="inline-flex items-center gap-2.5 text-brand-red text-xs font-[800] after:content-[''] after:w-[26px] after:h-[1.5px] after:bg-[#ecd28f]">
+            مشاريعنا
+          </span>
+          <h2 className="my-3 mb-2 text-[clamp(26px,3.2vw,34px)] font-[800] text-text-inverse">
+            أعمال نفخر بها
+          </h2>
+          <p className="m-0 text-[#aebbd0] text-sm">
+            نماذج من حلول محاسبية صُممت بعناية لتصنع فرقًا واضحًا.
+          </p>
         </header>
 
         <CaseStudy {...CASE_STUDY} />
 
-        <div className="pj-grid">
+        <div className="grid grid-cols-3 max-[900px]:grid-cols-1 gap-6">
           {CLIENTS.map((c) => (
             <ClientCard key={c.id} {...c} />
           ))}
