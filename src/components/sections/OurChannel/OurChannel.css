@@ -1,0 +1,161 @@
+.yt-section {
+  --brand: #a61e22;
+  --btn: #d2382f;
+  --ink: #1d1d1f;
+  --muted: #6b6b70;
+  --line: #e4e2e0;
+
+  background: #f5f4f2;
+  padding: 72px 0;
+  direction: rtl;
+}
+
+.yt-container {
+  width: min(1120px, 100% - 40px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.12fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* ---------- النص ---------- */
+.yt-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+.yt-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #fbe5e3;
+  color: var(--btn);
+  display: grid;
+  place-items: center;
+}
+.yt-head { display: flex; flex-direction: column; gap: 10px; }
+.yt-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 800;
+}
+.yt-eyebrow::after {
+  content: "";
+  width: 26px;
+  height: 1.5px;
+  background: var(--brand);
+}
+.yt-head h2 {
+  margin: 0;
+  font-size: clamp(26px, 3.2vw, 34px);
+  font-weight: 800;
+  color: var(--ink);
+}
+.yt-head p,
+.yt-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+.yt-text { max-width: 440px; }
+
+.yt-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--btn);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+.yt-button:hover { background: #b62f27; }
+.yt-button:focus-visible,
+.yt-poster:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
+
+/* ---------- كارت الفيديو ---------- */
+.yt-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.yt-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.yt-frame iframe,
+.yt-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.yt-poster {
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+.yt-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.yt-play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 64px;
+  height: 46px;
+  border-radius: 14px;
+  background: #e62117;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease;
+}
+.yt-poster:hover .yt-play { transform: scale(1.08); }
+
+.yt-meta {
+  padding: 16px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.yt-meta span {
+  color: var(--brand);
+  font-size: 11px;
+  font-weight: 800;
+}
+.yt-meta h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+/* ---------- موبايل ---------- */
+@media (max-width: 860px) {
+  .yt-section { padding: 52px 0; }
+  .yt-container { grid-template-columns: 1fr; gap: 32px; }
+  .yt-card { order: 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .yt-play, .yt-button { transition: none; }
+}

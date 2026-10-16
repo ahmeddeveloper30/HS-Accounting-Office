@@ -11,7 +11,7 @@ export const Navbar = () => {
     { label: 'من نحن', href: '/#about' },
     { label: 'خدماتنا', href: '/#services' },
     { label: 'مشاريعنا', href: '/#projects' },
-    { label: 'قناتنا', href: '/#channel' },
+    { label: 'قناتنا', href: '/#OurChannel' },
     { label: 'تواصل معنا', href: '/#contact' },
   ];
 

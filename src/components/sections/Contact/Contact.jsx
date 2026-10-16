@@ -152,7 +152,7 @@ export const Contact = () => {
                     <span>الهاتف</span>
                   </div>
                   <span className="text-xs font-semibold text-text-heading" dir="ltr">
-                    +20 100 000 0000
+                    +20 100 507 9496 - +20 111 855 0337
                   </span>
                 </div>
 
@@ -163,7 +163,7 @@ export const Contact = () => {
                     <span>ساعات العمل</span>
                   </div>
                   <span className="text-xs font-semibold text-text-heading">
-                    الأحد - الخميس (٩ - ٥)
+                    السبت - الخميس (٩ - ٥)
                   </span>
                 </div>
 
@@ -174,8 +174,7 @@ export const Contact = () => {
                     <span>العنوان</span>
                   </div>
                   <span className="text-xs font-semibold text-text-heading">
-                    القاهرة، مصر
-                  </span>
+العاشر من رمضان /الاردنية /مول المباركية /امام المشربيه                  </span>
                 </div>
               </div>
             </div>
