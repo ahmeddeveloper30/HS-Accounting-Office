@@ -134,7 +134,7 @@ export const Audience = () => {
       {/* Numbered list with thin dividers */}
       <div className="mb-8">
         <h4 className="text-[13px] font-[700] text-text-muted mb-1">
-          اللي هتتعلمه
+         ما سنقدمه لك
         </h4>
         <ol className="list-none p-0 m-0">
           {selectedCard.features.map((feature, idx) => (
@@ -176,7 +176,7 @@ export const Audience = () => {
           onClick={handleBooking}
           className="flex-1 max-sm:w-full"
         >
-          ابدأ بمكالمة مجانية
+         ابدأ استشارتك الآن
         </Button>
       </div>
     </div>

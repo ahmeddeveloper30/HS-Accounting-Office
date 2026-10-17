@@ -13,8 +13,8 @@ const CASE_STUDY = {
   title: "دراسة حالة ضريبية",
   description:
     "مطالبة ضريبية أصلية تمت مراجعتها وتسويتها لتنتهي بمبلغ نهائي معتمد.",
-  before: 7000000, // المطالبة الأصلية
-  after: 80000, // المبلغ النهائي المعتمد
+  before: 1000000, // المطالبة الأصلية
+  after: 7000, // المبلغ النهائي المعتمد
   currency: "جنيه",
   // ضع true فقط عند توافر المستندات التي تثبت الرقمين
   documented: true,
@@ -23,7 +23,7 @@ const CASE_STUDY = {
 const CLIENTS = [
   {
     id: "taqwa",
-    name: "شركة التقوى للستانلس ستيل",
+    name: "الشركة العربية الدولية لصناعة الدهانات",
     service: "خدمات محاسبية وضريبية",
     description:
       "تنظيم الدورة المحاسبية ومتابعة الالتزامات الضريبية للشركة بصورة دورية.",
@@ -94,7 +94,7 @@ function useCountUp(target, active, { duration = 1800, delay = 0 } = {}) {
       const tick = (now) => {
         if (start === undefined) start = now;
         const p = Math.min((now - start) / duration, 1);
-        setValue(target * (1 - Math.pow(1 - p, 3))); // بتبطّأ في الآخر
+        setValue(target * (1 - Math.pow(1 - p, 3))); 
         if (p < 1) raf = requestAnimationFrame(tick);
       };
       raf = requestAnimationFrame(tick);
