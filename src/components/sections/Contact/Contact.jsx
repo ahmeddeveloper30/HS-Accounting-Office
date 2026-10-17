@@ -152,7 +152,7 @@ export const Contact = () => {
                     <span>الهاتف</span>
                   </div>
                   <span className="text-xs font-semibold text-text-heading" dir="ltr">
-                    +20 100 507 9496 - +20 111 855 0337
+                    01005079496   01118550337
                   </span>
                 </div>
 
@@ -174,7 +174,7 @@ export const Contact = () => {
                     <span>العنوان</span>
                   </div>
                   <span className="text-xs font-semibold text-text-heading">
-العاشر من رمضان /الاردنية /مول المباركية /امام المشربيه                  </span>
+العاشر من رمضان -الاردنية - مول المباركية - امام قهوة المشربيه                  </span>
                 </div>
               </div>
             </div>
@@ -230,7 +230,7 @@ export const Contact = () => {
 
               {/* Google Maps Link Overlay on Hover */}
               <a
-                href="https://maps.google.com"
+                href="https://maps.app.goo.gl/YhpBh4ndixg1VDcz8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute inset-0 z-20 flex items-center justify-center bg-charcoal/50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs font-bold gap-1.5 backdrop-blur-[1px]"

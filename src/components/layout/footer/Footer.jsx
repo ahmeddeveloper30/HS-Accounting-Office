@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/elshayb-logo.png';
-import { FaYoutube } from 'react-icons/fa';
+import { FaYoutube, FaFacebook } from 'react-icons/fa';
 
 export const Footer = ({ youtubeUrl = 'https://www.youtube.com/@-HamdyElshayb' }) => {
   const handleScrollTop = () => {
@@ -47,6 +47,17 @@ export const Footer = ({ youtubeUrl = 'https://www.youtube.com/@-HamdyElshayb' }
             className="w-10 h-10 rounded-[12px] border border-white/15 bg-white/[0.03] flex items-center justify-center text-icon-red-light transition-all duration-300 hover:border-brand-red hover:bg-brand-red/10 hover:text-brand-red hover:scale-105 shadow-sm"
           >
             <FaYoutube className="w-5 h-5" />
+          </a>
+
+          {/* Facebook Button */}
+          <a
+            href="https://www.facebook.com/hamdy.elshayb.9"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="صفحة مكتب الشايب على فيسبوك"
+            className="w-10 h-10 rounded-[12px] border border-white/15 bg-white/[0.03] flex items-center justify-center text-icon-red-light transition-all duration-300 hover:border-brand-red hover:bg-brand-red/10 hover:text-brand-red hover:scale-105 shadow-sm"
+          >
+            <FaFacebook className="w-5 h-5" />
           </a>
         </div>
       </div>
