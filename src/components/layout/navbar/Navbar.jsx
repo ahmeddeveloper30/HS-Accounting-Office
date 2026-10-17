@@ -36,11 +36,11 @@ export const Navbar = () => {
           />
           <div>
             <h1 className="text-sm font-semibold text-text-inverse-nav m-0 leading-[1.4] whitespace-nowrap transition-colors duration-300 group-hover:text-text-inverse">
-           مكتب الشايب
+           مكتب د/حمدى الشايب
           </h1>
           <div>
             <p className="text-[11px] font-semibold text-text-inverse-detail">
-              للمحاسبة والاستشارات
+              للمحاسبة والاستشارات الضريبية
             </p>
           </div>
           </div>
