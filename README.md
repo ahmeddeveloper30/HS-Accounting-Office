@@ -153,13 +153,23 @@ npm run preview
 
 ---
 
-## 🔮 Backend & API Roadmap
+## 📬 Backend Setup
 
-- [ ] **Node.js & Express API Server**:
-  - `POST /api/contact` consultation booking endpoint.
-  - Instant branded HTML email dispatch to the office managing partner via **Nodemailer** or **Resend API**.
-  - **Security & Bot Mitigation**: IP Rate Limiting (`express-rate-limit`), CORS domain restriction, honeypot spam traps, and input validation.
-  - **Audit Log**: Optional persistence layer with **MongoDB** to prevent lead loss and archive customer inquiries.
+The contact form sends requests to `POST /api/contact`. To run the frontend and
+API locally, configure `backend/.env` with `EMAIL_USER`, `EMAIL_PASS`, and
+`CLIENT_URL` (for example, `http://localhost:5173`), then run these commands in
+separate terminals:
+
+```bash
+npm run server
+npm run dev
+```
+
+Vite proxies `/api` requests to the local API on port 5000. In production, set
+`VITE_API_URL` to the deployed API's base URL when building the frontend, and
+set `CLIENT_URL` on the API to the deployed frontend's origin. Keep email
+credentials only in the backend environment; do not expose them as `VITE_*`
+variables.
 
 ---
 

@@ -10,19 +10,43 @@ export const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.contact) return;
 
     setIsSubmitting(true);
-    // Simulate submission until backend is ready
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setError('');
+
+    try {
+      const apiUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+      const res = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const text = await res.text();
+
+      let result;
+      try {
+        result = text ? JSON.parse(text) : null;
+      } catch {
+        throw new Error(`استجابة غير صالحة من السيرفر (${res.status})`);
+      }
+
+      if (!res.ok || !result?.success) {
+        throw new Error(result?.error || `فشل إرسال الرسالة (${res.status})`);
+      }
+
       setSubmitted(true);
       setFormData({ name: '', contact: '', message: '' });
       setTimeout(() => setSubmitted(false), 6000);
-    }, 800);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'تعذر الاتصال بالسيرفر');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -53,6 +77,12 @@ export const Contact = () => {
               <div className="mb-6 p-4 rounded-btn bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center gap-2.5 text-sm animate-fade-in">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
                 <span>تم إرسال طلبك بنجاح! سنتواصل معك في أقرب وقت.</span>
+              </div>
+            )}
+
+            {error && (
+              <div className="mb-6 p-4 rounded-btn bg-red-50 border border-red-200 text-red-800 text-sm">
+                {error}
               </div>
             )}
 
